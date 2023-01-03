@@ -25,6 +25,43 @@
   text-align: left;
 }
 
+.chatLog {
+  text-align: left;
+  
+}
+
+.chatMessage.chatgpt {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.chatMessageCenter {
+  padding: 12px;
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.avatar {
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.avatar.chatgpt {
+  background: #0da37f;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.message {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 .sideMenuButton span {
   padding-left: 6px;
   padding-right: 12px;
