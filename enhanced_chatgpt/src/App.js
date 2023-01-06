@@ -7,7 +7,8 @@ function App() {
   const [input, setInput] = useState("");
   const [chatLog, setChatLog] = useState([ {
     user: "gpt",
-    message: "How can I help you today?"
+    message: "How can I help you today?" 
+    
   }]);
 
   async function handleSubmit(e){
@@ -15,7 +16,7 @@ function App() {
     setChatLog([...chatLog, {user: "me", message: `${input}` } ])
     setInput("");
 
-    const response = await fetch("http://localhost:3000/", {
+    const response = await fetch("http://localhost:3080/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -25,7 +26,8 @@ function App() {
       })
     });
     const data = await response.json();
-    console.log(data);
+    setChatLog([...chatLog, {user: "gpt", message: `${data.message}`}]);
+    
   }
   return (
     <div className="App">
@@ -55,7 +57,7 @@ function App() {
 
 const ChatMessage = ({ message }) => {
   return (
-    <div className={`chatMessage ${message.user == "gpt" && "chatgpt"}` }>
+    <div className={`chatMessage ${message.user === "gpt" && "chatgpt"}` }>
     <div className='chatMessageCenter'>
       <div className={`avatar ${message.user === "gpt" && "chatgpt"}` }>
         {message.user === "gpt" &&  <svg
